@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="1232715d-c9a2-4996-a1b0-b082bfaf78cd" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../lab2/Arithmetic/Arithmetic.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lab2/Arithmetic/Arithmetic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab2/DebugExercise/DebugExercise1.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lab2/DebugExercise/DebugExercise1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab2/DebugExercise/DebugExercise2.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lab2/DebugExercise/DebugExercise2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab2/IntList/AddConstantTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lab2/IntList/AddConstantTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab2/IntList/IntListExercises.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lab2/IntList/IntListExercises.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab2/IntList/SquarePrimesTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lab2/IntList/SquarePrimesTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../proj0/game2048/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/../proj0/game2048/Board.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../proj0/game2048/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/../proj0/game2048/Model.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="localRepository" value="D:\cs61b\skeleton-sp21\library-sp21\javalib" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 8
+}]]></component>
+  <component name="ProjectId" id="2nCNRlYimnYryqKC6R8gpFAUR6r" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/cs61b/skeleton-sp21",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "MavenSettings"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="1232715d-c9a2-4996-a1b0-b082bfaf78cd" name="Changes" comment="" />
+      <created>1728473091651</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1728473091651</updated>
+    </task>
+    <servers />
+  </component>
+</project>
