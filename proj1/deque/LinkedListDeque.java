@@ -22,6 +22,7 @@ public class LinkedListDeque<T> {
         sentinel = new node<>(null, null, null);
         sentinel.pv = sentinel;
         sentinel.nx = sentinel;
+        getRecursive_Node = sentinel;
     }
 
     public boolean isEmpty(){
@@ -72,6 +73,7 @@ public class LinkedListDeque<T> {
     }
 
     public T get(int i) {
+        if (i >= size) return null;
         node<T> j = sentinel;
         while (i >= 0) {
             j = j.nx;
@@ -80,8 +82,9 @@ public class LinkedListDeque<T> {
         return j.val;
     }
 
-    private node<T> getRecursive_Node = sentinel;
+    private node<T> getRecursive_Node;
     public T getRecursive(int i) {
+        if (i >= size) return null;
         if (i < 0) {
             T toRet = getRecursive_Node.val;
             getRecursive_Node = sentinel;
