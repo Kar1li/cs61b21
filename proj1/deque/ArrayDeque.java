@@ -8,19 +8,23 @@ public class ArrayDeque<T> {
 
     public class ArrayStack<T> {
 
+        private int bottom;
         private int top;
         private T[] core;
 
         public ArrayStack() {
             core = (T[]) new Object[initialSize/2];
             top = -1;
+            bottom = 0;
         }
 
         public void resize(int len) {
             T[] newCore = (T[]) new Object[len];
-            for (int i = 0; i <= top; ++i) {
-                newCore[i] = core[i];
+            for (int i = bottom; i <= top; ++i) {
+                newCore[i-bottom] = core[i];
             }
+            top = semiSize() - 1;
+            bottom = 0;
             core = newCore;
         }
 
@@ -35,17 +39,33 @@ public class ArrayDeque<T> {
         public T remove() {
             T toReturn = core[top];
             --top;
-            if (core.length >= initialSize && 4 * (top + 1) < core.length) {
-                resize(2 * (top + 1));
+            if (core.length >= initialSize && 4 * (top - bottom + 1) < core.length) {
+                resize(2 * (top - bottom + 1));
             }
             return toReturn;
         }
 
-        public T get(int i) { return core[i];}
-        public int semiSize() {return top + 1;}
+        public T dequeue() {
+            T toRet = core[bottom];
+            ++bottom;
+            if (core.length >= initialSize && 4 * (top - bottom + 1) < core.length) {
+                resize(2 * (top - bottom + 1));
+            }
+            return toRet;
 
-        public void printStack() {
-            for (int i = 0; i <= top; ++i) {
+        }
+
+        public T get(int i) {return core[i + bottom];}
+        public int semiSize() {return top - bottom + 1;}
+
+        public void printHead() {
+            for (int i = top; i >= bottom; --i) {
+                System.out.print(core[i] + " ");
+            }
+        }
+
+        public void printTail() {
+            for (int i = bottom; i <= top; ++i) {
                 System.out.print(core[i] + " ");
             }
         }
@@ -83,19 +103,23 @@ public class ArrayDeque<T> {
     }
 
     public T removeFirst() {
+        if (size == 0) return null;
         --size;
-        return toHead.remove();
+        if (toHead.semiSize() > 0) return toHead.remove();
+        return toTail.dequeue();
     }
 
     public T removeLast() {
+        if (size == 0) return null;
         --size;
-        return toTail.remove();
+        if (toTail.semiSize() > 0) return toTail.remove();
+        return toHead.dequeue();
     }
 
     public T get(int index) {
         if (index < 0 || index >= size) return null;
         if (index < toHead.semiSize()) {
-            return toHead.get(index);
+            return toHead.get(toHead.semiSize() - index - 1);
         } else {
             return toTail.get(index - toHead.semiSize());
         }
@@ -103,7 +127,7 @@ public class ArrayDeque<T> {
     }
 
     public void printDeque() {
-        toHead.printStack(); toTail.printStack();
+        toHead.printHead(); toTail.printTail();
         System.out.print("\n");
     }
 
