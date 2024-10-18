@@ -1,6 +1,6 @@
 package deque;
 
-public class LinkedListDeque<T> {
+public class LinkedListDeque<T> implements Deque<T> {
 
     public static class node<T> {
         public node<T> pv;
@@ -25,9 +25,9 @@ public class LinkedListDeque<T> {
         getRecursive_Node = sentinel;
     }
 
-    public boolean isEmpty(){
-        return size == 0;
-    }
+//    public boolean isEmpty(){
+//        return size == 0;
+//    }
 
     public void addFirst(T item) {
         node<T> newNode = new node<>(sentinel, item, sentinel.nx);

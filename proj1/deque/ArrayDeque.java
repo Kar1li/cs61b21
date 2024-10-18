@@ -2,7 +2,7 @@ package deque;
 
 
 
-public class ArrayDeque<T> {
+public class ArrayDeque<T> implements Deque<T> {
 
     private int initialSize = 8;
 
@@ -84,9 +84,9 @@ public class ArrayDeque<T> {
     }
 
 
-    public boolean isEmpty(){
-        return size == 0;
-    }
+//    public boolean isEmpty(){
+//        return size == 0;
+//    }
 
     public int size() {
         return size;
