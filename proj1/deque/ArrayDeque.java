@@ -1,6 +1,7 @@
 package deque;
 
 
+import java.util.Iterator;
 
 public class ArrayDeque<T> implements Deque<T> {
 
@@ -131,6 +132,30 @@ public class ArrayDeque<T> implements Deque<T> {
         System.out.print("\n");
     }
 
+
+    private class ADIterator<T> implements Iterator<T> {
+        private int curr;
+        private T val;
+
+        public ADIterator() {
+            curr = 0;
+            val = null;
+        }
+
+        public T next() {
+            T ret = (T) get(curr);
+            ++curr;
+            return val;
+        }
+
+        public boolean hasNext() {
+            return curr < size;
+        }
+    }
+
+    public ADIterator<T> iterator () {
+        return new ADIterator<>();
+    }
 
 
 
