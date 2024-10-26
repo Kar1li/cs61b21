@@ -147,9 +147,9 @@ public class ArrayDeque<T> implements Deque<T>, Iterable<T> {
         }
 
         public T next() {
-            T ret = (T) get(curr - 1);
+            T ret = (T) get(curr);
             ++curr;
-            return val;
+            return ret;
         }
 
         public boolean hasNext() {
