@@ -2,11 +2,23 @@ package deque;
 
 import jh61b.junit.In;
 import org.junit.Test;
+
+import java.util.Comparator;
+
 import static org.junit.Assert.*;
 
 
 /** Performs some basic linked list tests. */
 public class LinkedListDequeTest {
+
+    public class myCom implements Comparator {
+
+
+        @Override
+        public int compare(Object o1, Object o2) {
+            return (Integer) o1 - (Integer) o2;
+        }
+    }
 
     @Test
     /** Adds a few things to the list, checking isEmpty() and size() are correct,
@@ -178,5 +190,16 @@ public class LinkedListDequeTest {
         testing.get(0)      ;
         testing.removeLast() ;
         testing.addLast(22);
+    }
+
+    @Test
+    public void MAXTEST() {
+        myCom cc = new myCom();
+        MaxArrayDeque<Integer> mad = new MaxArrayDeque<>(cc);
+        mad.addFirst(1); mad.addLast(2); mad.addFirst(3);
+        int m = mad.max();
+        System.out.print(mad.max());
+
+
     }
 }
