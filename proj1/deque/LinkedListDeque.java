@@ -2,9 +2,9 @@ package deque;
 
 import java.util.Iterator;
 
-public class LinkedListDeque<T> implements Deque<T> {
+public class LinkedListDeque<T> implements Deque<T>, Iterable<T> {
 
-    public static class node<T> {
+    private static class node<T> {
         public node<T> pv;
         public node<T> nx;
         public T val;
@@ -118,8 +118,22 @@ public class LinkedListDeque<T> implements Deque<T> {
         }
     }
 
-    public LDIterator<T> iterator() {
+    @Override
+    public boolean equals(Object n) {
+        if (this == n) return true;
+        if (n.getClass() != this.getClass()) return false;
+        if (n == null) return false;
+        if (((LinkedListDeque<T>) n).size() != this.size) return false;
+        for (int i = 0; i < size; ++i) {
+            if (!this.get(i).equals(((LinkedListDeque<T>) n).get(i))) return false;
+        }
+        return true;
+
+    }
+
+    public Iterator<T> iterator() {
         return new LDIterator<>();
     }
+
 
 }

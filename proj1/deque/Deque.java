@@ -1,6 +1,6 @@
 package deque;
 
-public interface Deque<T> extends Iterable<T>  {
+public interface Deque<T>  {
 
     public int size();
 
@@ -19,6 +19,8 @@ public interface Deque<T> extends Iterable<T>  {
     //public boolean hasNext();
 
     //public T next();
+
+
 
 
     public default boolean isEmpty() {

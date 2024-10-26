@@ -147,5 +147,36 @@ public class LinkedListDequeTest {
         }
 
 
+
+    }
+
+    @Test
+    public void myTest() {
+        
+        ArrayDeque<Integer> testing = new ArrayDeque<>();
+        
+        testing.addFirst(0);
+        testing.addLast(1);
+        testing.removeLast()    ;
+        testing.removeFirst();
+        testing.addLast(4);
+        testing.addFirst(5);
+        testing.removeLast()      ;
+        testing.removeLast()      ;
+        testing.addLast(8);
+        testing.addLast(9);
+        testing.removeFirst()   ;
+        testing.removeFirst()    ;
+        testing.addLast(12);
+        testing.removeFirst()    ;
+        testing.addLast(14);
+        testing.removeFirst()    ;
+        testing.addFirst(16);
+        testing.get(0)      ;
+        testing.addLast(18);
+        testing.addFirst(19);
+        testing.get(0)      ;
+        testing.removeLast() ;
+        testing.addLast(22);
     }
 }

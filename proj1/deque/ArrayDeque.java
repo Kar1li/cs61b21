@@ -3,26 +3,26 @@ package deque;
 
 import java.util.Iterator;
 
-public class ArrayDeque<T> implements Deque<T> {
+public class ArrayDeque<T> implements Deque<T>, Iterable<T> {
 
     private int initialSize = 8;
 
-    public class ArrayStack<T> {
+    private class ArrayStack<T> {
 
         private int bottom;
         private int top;
         private T[] core;
 
         public ArrayStack() {
-            core = (T[]) new Object[initialSize/2];
+            core = (T[]) new Object[initialSize / 2];
             top = -1;
-            bottom = 0;
+            bottom = -1;
         }
 
         public void resize(int len) {
             T[] newCore = (T[]) new Object[len];
             for (int i = bottom; i <= top; ++i) {
-                newCore[i-bottom] = core[i];
+                newCore[ i - bottom ] = core[i];
             }
             top = semiSize() - 1;
             bottom = 0;
@@ -33,39 +33,43 @@ public class ArrayDeque<T> implements Deque<T> {
             if (top + 1 == core.length) {
                 resize(2 * core.length );
             }
+            if (semiSize() == 0) ++bottom;
             ++top;
             core[top] = item;
         }
 
         public T remove() {
             T toReturn = core[top];
-            --top;
-            if (core.length >= initialSize && 4 * (top - bottom + 1) < core.length) {
-                resize(2 * (top - bottom + 1));
+            --top; if (bottom > top) { bottom = -1; top = -1; }
+            if (core.length >= initialSize && 4 * semiSize() < core.length) {
+                resize(2 * semiSize());
             }
+
             return toReturn;
         }
 
         public T dequeue() {
-            T toRet = core[bottom];
-            ++bottom;
-            if (core.length >= initialSize && 4 * (top - bottom + 1) < core.length) {
-                resize(2 * (top - bottom + 1));
+            T toRet = core[bottom]; ++bottom;
+            if (bottom > top) { bottom = -1; top = -1; }
+            if (core.length >= initialSize && 4 * semiSize() < core.length) {
+                resize(2 * semiSize());
             }
             return toRet;
 
         }
 
         public T get(int i) {return core[i + bottom];}
-        public int semiSize() {return top - bottom + 1;}
+        public int semiSize() {if (bottom == -1) return 0; return top - bottom + 1;}
 
         public void printHead() {
+            if (semiSize() == 0) return;
             for (int i = top; i >= bottom; --i) {
                 System.out.print(core[i] + " ");
             }
         }
 
         public void printTail() {
+            if (semiSize() == 0) return;
             for (int i = bottom; i <= top; ++i) {
                 System.out.print(core[i] + " ");
             }
@@ -153,8 +157,21 @@ public class ArrayDeque<T> implements Deque<T> {
         }
     }
 
-    public ADIterator<T> iterator () {
+    public Iterator<T> iterator () {
         return new ADIterator<>();
+    }
+
+    @Override
+    public boolean equals(Object n) {
+        if (this == n) return true;
+        if (n.getClass() != this.getClass()) return false;
+        if (n == null) return false;
+        if (((ArrayDeque<T>) n).size() != this.size) return false;
+        for (int i = 0; i < size; ++i) {
+            if (!this.get(i).equals(((ArrayDeque<T>) n).get(i))) return false;
+        }
+        return true;
+
     }
 
 
